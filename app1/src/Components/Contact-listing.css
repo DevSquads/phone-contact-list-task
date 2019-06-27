@@ -8,4 +8,10 @@
 .contact-header {
     margin: 0px !important;
     color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.search-sec {
+    margin-left: 55px;
 }

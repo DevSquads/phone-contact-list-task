@@ -1,62 +1,62 @@
 export default [
     {
         Id: 1,
-        Name: 'Ahmed',
-        JobTitle: 'title1',
-        Image: ''
+        FirstName: 'Asmaa',
+        SecondName: 'Taha',
+        JobTitle: 'title1'
     },
     {
         Id: 2,
-        Name: 'Sara',
-        JobTitle: 'title2',
-        Image: ''
+        FirstName: 'Mohammed',
+        SecondName: 'Ahmed',
+        JobTitle: 'title2'
     },
     {
         Id: 3,
-        Name: 'Hadeer',
-        JobTitle: 'title3',
-        Image: ''
+        FirstName: 'Hadeer',
+        SecondName: 'Nejm',
+        JobTitle: 'title3'
     },
     {
         Id: 4,
-        Name: 'Alyaa',
-        JobTitle: 'title4',
-        Image: ''
+        FirstName: 'Sara',
+        SecondName: 'Alaa',
+        JobTitle: 'title4'
     },
     {
         Id: 5,
-        Name: 'Doaa',
-        JobTitle: 'title5',
-        Image: ''
+        FirstName: 'Gehad',
+        SecondName: 'Hassan',
+        JobTitle: 'title5'
     },
     {
         Id: 6,
-        Name: 'Samar',
-        JobTitle: 'title6',
-        Image: ''
+        FirstName: 'Nourhan',
+        SecondName: 'Adel',
+        JobTitle: 'title6'
     },
     {
         Id: 7,
-        Name: 'Soha',
-        JobTitle: 'title7',
-        Image: ''
+        FirstName: 'Shery',
+        SecondName: 'Adel',
+        JobTitle: 'title7'
     },
     {
         Id: 8,
-        Name: 'Nehal',
-        JobTitle: 'title8',
-        Image: ''
+        FirstName: 'Samar',
+        SecondName: 'Ahmed',
+        JobTitle: 'title8'
     },
     {
         Id: 9,
-        Name: 'Mohamed',
-        JobTitle: 'title9',
-        Image: ''
+        FirstName: 'Alyaa',
+        SecondName: 'Mohsen',
+        JobTitle: 'title9'
     },
     {
         Id: 10,
-        Name: 'Ali',
-        JobTitle: 'title10',
-        Image: ''
+        FirstName: 'Layla',
+        SecondName: 'Ali',
+        JobTitle: 'title10'
     },
 ];
