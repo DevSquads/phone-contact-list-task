@@ -1,0 +1,11 @@
+.Header {
+    background-color: #4B577A;
+    width: 100%;
+    height: 20%;
+    /* position: absolute; */
+}
+
+.contact-header {
+    margin: 0px !important;
+    color: white;
+}
