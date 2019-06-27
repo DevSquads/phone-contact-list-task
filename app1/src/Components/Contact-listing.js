@@ -7,7 +7,7 @@ const ContactListing = (props) => {
             <h6 className="contact-header">Contact List</h6>
             <input className="search-sec" type="text" placeholder="Search Contacts" />
         </div>
-        <div>
+        <div class="Listing">
             <ContactItem />
         </div>
     </>
