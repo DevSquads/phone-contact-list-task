@@ -31,7 +31,7 @@ class ContactListing extends React.Component {
                 <input className="search-sec" type="text" value={this.state.search} onChange={this.handelChange} placeholder="Search Contacts" />
             </div>
             <div class="Listing">
-                {this.state.filteredData.map(c => <ContactItem key={c.Id} Id={c.Id} FullName={c.FullName} JobTitle={c.JobTitle} />)}
+                {this.state.filteredData.map(c => <> <ContactItem key={c.Id} Id={c.Id} FullName={c.FullName} JobTitle={c.JobTitle} /> <div class="line"></div></>)}
             </div>
         </>
         );
