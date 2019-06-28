@@ -7,7 +7,7 @@ export default [
     },
     {
         Id: 2,
-        FirstName: 'Mohammed',
+        FirstName: 'Ghada',
         SecondName: 'Ahmed',
         JobTitle: 'title2'
     },
