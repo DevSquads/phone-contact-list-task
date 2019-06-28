@@ -1,62 +1,52 @@
 export default [
     {
         Id: 1,
-        FirstName: 'Asmaa',
-        SecondName: 'Taha',
-        JobTitle: 'title1'
+        JobTitle: 'title1',
+        FullName: 'Asmaa Taha'
     },
     {
         Id: 2,
-        FirstName: 'Ghada',
-        SecondName: 'Ahmed',
-        JobTitle: 'title2'
+        JobTitle: 'title2',
+        FullName: 'Ghada Ahmed'
     },
     {
         Id: 3,
-        FirstName: 'Hadeer',
-        SecondName: 'Nejm',
-        JobTitle: 'title3'
+        JobTitle: 'title3',
+        FullName: 'Hadeer Nejm'
     },
     {
         Id: 4,
-        FirstName: 'Sara',
-        SecondName: 'Alaa',
-        JobTitle: 'title4'
+        JobTitle: 'title4',
+        FullName: 'Sara Alaa'
     },
     {
         Id: 5,
-        FirstName: 'Gehad',
-        SecondName: 'Hassan',
-        JobTitle: 'title5'
+        JobTitle: 'title5',
+        FullName: 'Gehad Hassan'
     },
     {
         Id: 6,
-        FirstName: 'Nourhan',
-        SecondName: 'Adel',
-        JobTitle: 'title6'
+        JobTitle: 'title6',
+        FullName: 'Nourhan Adel'
     },
     {
         Id: 7,
-        FirstName: 'Shery',
-        SecondName: 'Adel',
-        JobTitle: 'title7'
+        JobTitle: 'title7',
+        FullName: 'Shery Adel'
     },
     {
         Id: 8,
-        FirstName: 'Samar',
-        SecondName: 'Ahmed',
-        JobTitle: 'title8'
+        JobTitle: 'title8',
+        FullName: 'Samar Ahmed'
     },
     {
         Id: 9,
-        FirstName: 'Alyaa',
-        SecondName: 'Mohsen',
-        JobTitle: 'title9'
+        JobTitle: 'title9',
+        FullName: 'Alyaa Mohsen'
     },
     {
         Id: 10,
-        FirstName: 'Layla',
-        SecondName: 'Ali',
-        JobTitle: 'title10'
+        JobTitle: 'title10',
+        FullName: 'Layla Ali'
     },
 ];

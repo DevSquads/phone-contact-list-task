@@ -13,7 +13,7 @@ class ContactListing extends React.Component {
         this.setState(prevState => {
             const filteredData = prevState.data.filter(element => {
 
-                return (element.FirstName.toLowerCase().includes(search.toLowerCase()) || element.SecondName.toLowerCase().includes(search.toLowerCase()));
+                return (element.FullName.toLowerCase().includes(search.toLowerCase()));
 
 
             });
@@ -31,7 +31,7 @@ class ContactListing extends React.Component {
                 <input className="search-sec" type="text" value={this.state.search} onChange={this.handelChange} placeholder="Search Contacts" />
             </div>
             <div class="Listing">
-                {this.state.filteredData.map(c => <ContactItem key={c.Id} Id={c.Id} FirstName={c.FirstName} SecondName={c.SecondName} JobTitle={c.JobTitle} />)}
+                {this.state.filteredData.map(c => <ContactItem key={c.Id} Id={c.Id} FullName={c.FullName} JobTitle={c.JobTitle} />)}
             </div>
         </>
         );
