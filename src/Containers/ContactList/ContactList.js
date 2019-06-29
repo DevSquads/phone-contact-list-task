@@ -11,8 +11,7 @@ class ContactList extends Component {
         {
           _id: "12345a",
           img: Img,
-          contactName: "Fatma Reda",
-          contactInfo: "Web Developer"
+          contactName: "Fatma Reda"
         },
         {
           _id: "12345b",
@@ -25,14 +24,32 @@ class ContactList extends Component {
           img: Img,
           contactName: "Hager Hassan",
           contactInfo: "Marketer"
+        },
+        {
+          _id: "12345d",
+          img: Img,
+          contactName: "Fatma Alaa",
+          contactInfo: "Marketer"
+        },
+        {
+          _id: "12345e",
+          contactName: "Ahmed Waheed"
         }
-      ]
+      ],
+      search: ""
     };
   }
-
+  changeHandler = event => {
+    this.setState({
+      search: event.target.value.substr(0, 15)
+    });
+  };
   render() {
-    let contactList = this.state.contacts ? (
-      this.state.contacts.map(contact => {
+    let filteredContacts = this.state.contacts.filter((c)=>{
+      return c.contactName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    });
+    let contactList = filteredContacts ? (
+      filteredContacts.map(contact => {
         return (
           <li className="list-group-item" key={contact._id}>
             <ContactCard
@@ -47,9 +64,19 @@ class ContactList extends Component {
       <div>not found</div>
     );
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 d-flex justify-content-center">
+      <div className="container ContactList">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-6 ContactList-head">
+            <h4 className="ContactList-head-title"> Contact List</h4><br/>
+            <input
+              value={this.state.search}
+              onChange={event => this.changeHandler(event)}
+              placeholder="Search"
+            />
+          </div>
+        </div>
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-8">
             <ul className="list-group list-group-flush">{contactList}</ul>
           </div>
         </div>
