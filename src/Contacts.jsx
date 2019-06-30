@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContactDetail from './ContactDetail';
+import './contacts.css';
 
 const contactsAPI = 'https://demo1443058.mockable.io/codeproject_tutorial/api/contacts';
 // const contactsAPI = 'https://jsonplaceholder.typicode.com/users';
@@ -42,7 +43,7 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="contactList-bg">
                 <ul className="list-group" id="contact-list">
                     {this.returnContactList().map(
                         (contact) =>

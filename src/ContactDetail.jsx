@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import './contacts.css';
 
 const ContactCard = ({ contact }) => {
 
