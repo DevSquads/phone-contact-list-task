@@ -4,13 +4,13 @@ import ContactListing from './Contact-listing';
 const MobileApp = (props) => {
     const { data } = props;
     return (
-        <div class="Mobile" >
-            <div class="mobile-speaker"></div>
-            <div class="mobile-camera"></div>
-            <div class="mobile-screen">
-                <ContactListing data={data} />
+        <div className="Mobile" >
+            <div className="mobile-speaker"></div>
+            <div className="mobile-camera"></div>
+            <div className="mobile-screen">
+                <ContactListing key={data[0].Id + data[1].Id} data={data} />
             </div>
-            <div class="mobile-Button"></div>
+            <div className="mobile-Button"></div>
         </div>
     );
 }

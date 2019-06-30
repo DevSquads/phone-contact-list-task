@@ -26,12 +26,12 @@ class ContactListing extends React.Component {
 
     render() {
         return (<>
-            <div class="Header">
+            <div className="Header">
                 <h6 className="contact-header">Contact List</h6>
                 <input className="search-sec" type="text" value={this.state.search} onChange={this.handelChange} placeholder="Search Contacts" />
             </div>
-            <div class="Listing">
-                {this.state.filteredData.map(c => <> <ContactItem key={c.Id} Id={c.Id} FullName={c.FullName} JobTitle={c.JobTitle} /> <div class="line"></div></>)}
+            <div className="Listing">
+                {this.state.filteredData.map(c => <> <ContactItem key={c.Id} Id={c.Id} FullName={c.FullName} JobTitle={c.JobTitle} /> <div className="line"></div></>)}
             </div>
         </>
         );
