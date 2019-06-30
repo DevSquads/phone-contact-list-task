@@ -1,6 +1,5 @@
 body {
     padding: 30px 0px 60px;
-    background: aqua
 }
 
 @media (max-width: 767px) {
@@ -13,10 +12,16 @@ body {
         height: 1px !important;
     }
 }
+@media (min-width: 375px) and (max-width: 667px) {
+    .name{
+        margin-left: 10px;
+    }
+  }
 
 .name {
     font-size: 20px;
     font-weight: 700;
+    margin-left: 15px;
 }
 .c-info {
     padding: 5px 10px;
@@ -38,4 +43,9 @@ body {
 }
 .contactList-bg{
     background: black;
+}
+
+.list-group{
+    overflow-y: scroll;
+    height: 500px;
 }

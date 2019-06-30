@@ -43,7 +43,7 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div className="contactList-bg">
+            <div>
                 <ul className="list-group" id="contact-list">
                     {this.returnContactList().map(
                         (contact) =>
