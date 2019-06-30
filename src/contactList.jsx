@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContactDetail from './ContactDetail';
 import './contacts.css';
+import Search from '../src/search'
 
 const contactsAPI = 'https://demo1443058.mockable.io/codeproject_tutorial/api/contacts';
 // const contactsAPI = 'https://jsonplaceholder.typicode.com/users';
@@ -11,8 +12,25 @@ class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contactList: []
+            contactList: [],
+            searchText: '',
+            searchResult: [],
         }
+        this.handleSearch = this.handleSearch.bind(this);
+        this.returnContactList = this.returnContactList.bind(this);
+    }
+
+    handleSearch(searchText) {
+
+        this.setState({ searchResult: [], searchText: searchText });
+        this.state.contactList.map(contact => {
+
+            if (searchContact(contact, searchText)) {
+                this.setState(prevState => ({
+                    searchResult: [...prevState.searchResult, contact]
+                }), () => console.log(this.state.searchResult))
+            }
+        })
     }
     componentWillMount() {
         let init = {
@@ -44,6 +62,8 @@ class Contact extends Component {
     render() {
         return (
             <div>
+                <Search onSearch={this.handleSearch} />
+                <br />
                 <ul className="list-group" id="contact-list">
                     {this.returnContactList().map(
                         (contact) =>
@@ -56,5 +76,12 @@ class Contact extends Component {
         )
     }
 }
+
+const searchContact = (contact, searchText) => (
+    contact.name.toLowerCase().search(searchText.toLowerCase()) !== -1 ||
+    contact.surname.toLowerCase().search(searchText.toLowerCase()) !== -1 ||
+    contact.phone.toString().search(searchText) !== -1
+)
+
 
 export default Contact;
