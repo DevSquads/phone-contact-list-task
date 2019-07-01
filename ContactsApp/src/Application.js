@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { Header, ThemeProvider, Button, Text } from 'react-native-elements';
+import { ThemeProvider } from 'react-native-elements';
 import AppNavigator from './navigators/AppNavigator';
+import { Provider } from 'react-redux';
+import store from './redux-store/store';
 
 class Application extends Component {
   render() {
     return (
-      <ThemeProvider>
-        <AppNavigator/>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider>
+          <AppNavigator/>
+        </ThemeProvider>
+      </Provider>
     );
   }
 }

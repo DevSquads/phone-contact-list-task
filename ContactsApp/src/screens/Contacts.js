@@ -1,32 +1,35 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import { Text, Header, Icon, ListItem } from 'react-native-elements';
-import SearchInput from '../SearchInput';
+import SearchInput from '../components/SearchInput';
+import { connect } from 'react-redux';
+import { contactsActions } from '../redux-store/actions';
 
 class ContactsScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchText: '',
-      contacts: []
+      apiContacts: [],
+      phoneContacts: []
     };
   }
 
   componentDidMount(): void {
-    // get test data from API
-    fetch('https://reqres.in/api/users?page=1&&per_page=50')
-      .then(response => response.json())
-      .then(data => data.data)
-      .then(contacts => this.setState({ contacts }));
+    // dispatch action
+    this.props.getContactsFromApi();
+  }
+
+  componentWillReceiveProps(nextProps, nextContext): void {
+    const { contacts } = nextProps;
+    this.setState({ ...contacts })
   }
 
   handleSearchChange = (text) => {
-    console.log(text);
     this.setState({ searchText: text });
   };
 
   contactListKeyExtractor = (item, index) => index.toString();
-
 
   renderItem = ({ item }) => (
     <ListItem
@@ -39,10 +42,10 @@ class ContactsScreen extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
-    const searchList = this.state.contacts.filter(item =>
-      (item.first_name.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
-      item.last_name.toLowerCase().includes(this.state.searchText.toLowerCase())));
+    const { apiContacts } = this.state;
+    const searchList = apiContacts.filter(item =>
+      ( item.first_name.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        item.last_name.toLowerCase().includes(this.state.searchText.toLowerCase()) ));
     return (
       <View>
         <Header
@@ -67,12 +70,23 @@ class ContactsScreen extends Component {
           />
         </View>
       </View>
-    )
-      ;
+    );
   }
 }
 
-export default ContactsScreen;
+const mapStateToProps = (state) => {
+  const { contacts } = state;
+  return { contacts };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getContactsFromApi: () => dispatch(contactsActions.getContactsFromApi()),
+    getContactsFromPhoneContacts: () => dispatch(contactsActions.getContactsFromPhoneContacts()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsScreen);
 
 
 const styles = StyleSheet.create({
