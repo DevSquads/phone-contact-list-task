@@ -9,7 +9,8 @@ import SearchIcon from "@material-ui/icons/Search";
 
 class ContactList extends Component {
     state = {
-        contacts: []
+        contacts: [],
+        searchQuery: ""
     }
     headerStyle = {
         padding: '1rem 0',
@@ -23,7 +24,10 @@ class ContactList extends Component {
     }
 
     render() {
-        const { contacts } = this.state;
+        const { contacts: allContacts, searchQuery } = this.state;
+        let contacts = allContacts;
+        if(searchQuery)
+            contacts = contacts.filter( contact => contact.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
         return (
             <React.Fragment>
                 <div style={this.headerStyle}>
@@ -42,9 +46,9 @@ class ContactList extends Component {
                             color: 'white'
                         }
                     }}
-                    label="wtf"
                     variant='outlined'
                     style={{ borderColor: 'white'}}
+                    onChange={ (e) => this.handleSearch(e.target.value) }
                 />
                 </div>
                 
@@ -54,6 +58,10 @@ class ContactList extends Component {
                 </ul>
             </React.Fragment>);
     }
+
+
+    handleSearch = (searchQuery) => 
+        this.setState({searchQuery})
 }
 
 export default ContactList;
