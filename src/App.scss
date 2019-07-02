@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Roboto:400,700|PT+Sans+Narrow:400,700");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", "sans-serif";
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: 0.3px;
+  line-height: 1.7rem;
+  overflow-x: hidden;
+}
+$maincolor:#5d7044;
+$secondcolor:#703121;
+$backgroundcolor:#fff9d9;
+$maincolornav:#2f2c40;
+
+@import '../src/Components/ContactCard/ContactCard';
+@import '../src/Containers/ContactList/ContactList';

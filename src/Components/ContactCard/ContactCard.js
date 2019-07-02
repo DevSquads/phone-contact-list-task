@@ -1,13 +1,26 @@
 import React from "react";
 import Proptype from "prop-types";
 import Img from "../../assets/defaultImg.jpg";
-import "./ContactCard.module.css";
 
 const ContactCard = props => {
   return (
     <React.Fragment>
-      <h2>{props.contactName}</h2>
-      <p>{props.contactInfo}</p>
+      <div className="ContactCard-img">   
+        <img src={props.imgURL} alt="contact" />
+        <span>
+          <i className="fa fa-phone" aria-hidden="true" />
+        </span>
+      </div>
+      <div className="ContactCard-detail">
+        <h2>{props.contactName}</h2>
+        <span>
+          <i className="fa fa-trash" aria-hidden="true" />
+        </span>
+        <span>
+          <i className="fa fa-pencil" aria-hidden="true" />
+        </span>
+        <p>{props.contactInfo}</p>
+      </div>
     </React.Fragment>
   );
 };

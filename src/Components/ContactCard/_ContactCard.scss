@@ -1,0 +1,45 @@
+.ContactCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &-img {
+    width: 15%;
+    height: 15%;
+    & img {
+      max-width: 100%;
+      border-radius: 3rem;
+      position: relative;
+    }
+    & span {
+      position: absolute;
+      left: 23%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: $maincolor;
+      font-size: 3.5rem;
+      display: none;
+    }
+    &:hover span {
+      display: block;
+      cursor: pointer;
+    }
+  }
+  &-detail {
+    margin: 5rem 0;
+    & h2 {
+      display: inline-block;
+      color: #565f51;
+      font-size: 2.5rem;
+      font-weight: 550;
+    }
+    & span {
+      color: $secondcolor;
+      margin: 0.4rem;
+      font-size: 1.5rem;
+    }
+    & p {
+      color:$maincolornav;
+      font-size: 1.5rem;
+    }
+  }
+}

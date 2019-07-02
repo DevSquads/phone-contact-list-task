@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ContactCard from "../../Components/ContactCard/";
 import Img from "../../assets/contactImg.jpg";
-import "./ContactList.module.css";
 
 class ContactList extends Component {
   constructor(props) {
@@ -33,6 +32,10 @@ class ContactList extends Component {
         },
         {
           _id: "12345e",
+          contactName: "Abd El Rahman"
+        },
+        {
+          _id: "12345f",
           contactName: "Ahmed Waheed"
         }
       ],
@@ -51,7 +54,7 @@ class ContactList extends Component {
     let contactList = filteredContacts ? (
       filteredContacts.map(contact => {
         return (
-          <li className="list-group-item" key={contact._id}>
+          <li className="list-group-item ContactCard" key={contact._id}>
             <ContactCard
               contactName={contact.contactName}
               imgURL={contact.img}
@@ -66,9 +69,10 @@ class ContactList extends Component {
     return (
       <div className="container ContactList">
         <div className="row d-flex justify-content-center">
-          <div className="col-md-6 ContactList-head">
-            <h4 className="ContactList-head-title"> Contact List</h4><br/>
-            <input
+          <div className="col-md-12 col-sm-6 ContactList-head">
+            <h4 className="col-md-3 col-sm-3 ContactList-head__title"> Contact List</h4>
+            <input className="col-md-3 col-sm-3 ContactList-head__search"
+              type="text"
               value={this.state.search}
               onChange={event => this.changeHandler(event)}
               placeholder="Search"
@@ -76,7 +80,7 @@ class ContactList extends Component {
           </div>
         </div>
         <div className="row d-flex justify-content-center">
-          <div className="col-md-8">
+          <div className="col-md-8 col-sm-6">
             <ul className="list-group list-group-flush">{contactList}</ul>
           </div>
         </div>
