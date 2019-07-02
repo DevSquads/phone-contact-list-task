@@ -28,9 +28,7 @@ class ContactList extends Component {
     contactsPerPage = 10;
     
     componentDidMount() {
-        this.setState({ veiwedContacts: getContacts()});
-        console.log(getContacts())
-        //this.paginate();
+        this.setState({ contacts: getContacts()}, () => this.paginate());
     }
 
     render() {
@@ -62,7 +60,7 @@ class ContactList extends Component {
                 {!veiwedContacts.length && <p className="text-center mt-2"> No results </p>}
 
                 {   veiwedContacts.length !== 0 &&
-                    <ul className="list-group" style={this.styles.list}>
+                    <ul className="list-group" style={this.styles.list} onScroll={this.handleScroll}> 
                         {veiwedContacts.map(contact => <Contact contact={contact} key={contact._id} />)}
                     </ul>
                 }
@@ -70,7 +68,9 @@ class ContactList extends Component {
     }
 
     handleSearch = (searchQuery) => {
-        this.setState({ veiwedContacts: filterContacts(searchQuery), currentPageNum: 0 })
+        this.setState({ contacts: filterContacts(searchQuery), currentPageNum: 0 }, () => {
+            this.paginate();
+        })
     }
 
     paginate = () => {
@@ -80,6 +80,15 @@ class ContactList extends Component {
             return;
         const newContacts = veiwedContacts.concat(contacts.slice(slicingIndex, slicingIndex + this.contactsPerPage));
         this.setState({veiwedContacts: newContacts, currentPageNum: currentPageNum + 1})
+    }
+
+    handleScroll = ({target: element}) => {
+        //console.log("Scrolling...")
+        if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+            //console.log("Bottom!");
+            this.paginate();
+        }
+    
     }
         
 }
