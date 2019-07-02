@@ -68,7 +68,7 @@ class ContactList extends Component {
     }
 
     handleSearch = (searchQuery) => {
-        this.setState({ contacts: filterContacts(searchQuery), currentPageNum: 0 }, () => {
+        this.setState({ contacts: filterContacts(searchQuery), currentPageNum: 0, veiwedContacts:[] }, () => {
             this.paginate();
         })
     }
