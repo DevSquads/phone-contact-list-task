@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
-import { Text, Header, Icon, ListItem } from 'react-native-elements';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { Header, Icon, ListItem } from 'react-native-elements';
 import SearchInput from '../components/SearchInput';
 import { connect } from 'react-redux';
 import { contactsActions } from '../redux-store/actions';
@@ -11,13 +11,17 @@ class ContactsScreen extends Component {
     this.state = {
       searchText: '',
       apiContacts: [],
-      phoneContacts: []
+      phoneContacts: [],
+      apiActive: true
     };
   }
 
   componentDidMount(): void {
     // dispatch action
     this.props.getContactsFromApi();
+    if (this.props.contactsAccessOk) {
+      this.props.getContactsFromPhoneContacts();
+    }
   }
 
   componentWillReceiveProps(nextProps, nextContext): void {
@@ -29,23 +33,48 @@ class ContactsScreen extends Component {
     this.setState({ searchText: text });
   };
 
-  contactListKeyExtractor = (item, index) => index.toString();
 
-  renderItem = ({ item }) => (
+  renderApiContactsItem = ({ item }) => {
+    return (
+      <ListItem
+        title={`${item.first_name} ${item.last_name}`}
+        subtitle={item.email}
+        leftAvatar={{ source: { uri: item.avatar } }}
+      />
+    );
+
+  };
+
+  renderPhoneContactsItem = ({ item }) => (
     <ListItem
-      title={`${item.first_name} ${item.last_name}`}
-      subtitle={item.email}
-      leftAvatar={{ source: { uri: item.avatar } }}
+      title={item.name}
+      subtitle={item.phoneNumbers && item.phoneNumbers[0].number}
+      leftAvatar={item.imageAvailable && { source: { uri: item.image.uri } }}
     />
   );
+
+  contactListKeyExtractor = (item, index) => index.toString();
+
+  searchForContacts = (text) => {
+    const { apiActive, apiContacts, phoneContacts } = this.state;
+    if (apiActive) {
+      return apiContacts.filter(item =>
+        ( item.first_name.toLowerCase()
+            .includes(text.toLowerCase()) ||
+          item.last_name.toLowerCase()
+            .includes(text.toLowerCase()) ));
+    } else {
+      return phoneContacts.filter(item =>
+        ( item.name.toLowerCase()
+          .includes(text.toLowerCase()) ));
+    }
+  };
 
 
   render() {
     const { navigate } = this.props.navigation;
-    const { apiContacts } = this.state;
-    const searchList = apiContacts.filter(item =>
-      ( item.first_name.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
-        item.last_name.toLowerCase().includes(this.state.searchText.toLowerCase()) ));
+    const { apiActive, searchText } = this.state;
+    const searchList = this.searchForContacts(searchText);
     return (
       <View>
         <Header
@@ -58,15 +87,26 @@ class ContactsScreen extends Component {
           }
           backgroundColor={'#4b5779'}
           centerComponent={{ text: 'Contacts List', style: { color: '#fff', fontSize: 20 } }}
+          rightComponent={
+            <Icon name={'contacts'}
+                  type={'antdesign'}
+                  color={'#fff'}
+                  onPress={() => this.setState({ apiActive: false })}
+            />}
         />
-        <View style={styles.searchView}>
+        < View style={styles.searchView}>
           <SearchInput onSearchChange={this.handleSearchChange}/>
         </View>
         <View>
           <FlatList
             keyExtractor={this.contactListKeyExtractor}
             data={searchList}
-            renderItem={this.renderItem}
+            renderItem={
+              apiActive ?
+                this.renderApiContactsItem :
+                this.renderPhoneContactsItem
+            }
+            extraData={this.state}
           />
         </View>
       </View>
@@ -75,8 +115,9 @@ class ContactsScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { contacts } = state;
-  return { contacts };
+  const { contacts, app } = state;
+  const { contactsAccessOk } = app;
+  return { contacts, contactsAccessOk };
 };
 
 const mapDispatchToProps = (dispatch) => {

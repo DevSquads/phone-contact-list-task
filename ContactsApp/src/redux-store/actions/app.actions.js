@@ -8,5 +8,9 @@ export default {
   },
   hideLoading: () => {
     return (dispatch) => dispatch({ type: appConstants.HIDE_LOADING, showLoading: false });
+  },
+  updateContactsPermission: (permissionAccess) => {
+    return (dispatch) => dispatch({ type: appConstants.CONTACTS_ACCESS_OK, contactsAccessOk: permissionAccess });
+
   }
 };

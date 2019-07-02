@@ -1,7 +1,8 @@
 import reduxConstants from '../../constants/redux';
 
 const initialState = {
-  showLoading: false
+  showLoading: false,
+  contactsAccessOk: false
 };
 
 const { appConstants: appActionsConstants } = reduxConstants;
@@ -19,6 +20,11 @@ export const app = (state = initialState, action) => {
       return {
         ...state,
         showLoading: false
+      };
+    case appActionsConstants.CONTACTS_ACCESS_OK:
+      return {
+        ...state,
+        contactsAccessOk: action.contactsAccessOk
       };
     default:
       return state;

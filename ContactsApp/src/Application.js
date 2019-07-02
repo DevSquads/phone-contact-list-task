@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './redux-store/store';
 
 class Application extends Component {
+
   render() {
     return (
       <Provider store={store}>
