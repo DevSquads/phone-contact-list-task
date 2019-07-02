@@ -12,12 +12,19 @@ class ContactList extends Component {
         contacts: [],
         searchQuery: ""
     }
-    headerStyle = {
-        padding: '1rem 0',
-        background: 'rgb(74, 87, 122)',
-        color: 'white',
-        textAlign: 'center'
+    styles= {
+        header: {
+            padding: '1rem 0',
+            background: 'rgb(74, 87, 122)',
+            color: 'white',
+            textAlign: 'center'
+        }, 
+        list: {
+            overflowY: "auto",
+            height:" calc(100vh - 7rem)" 
+        }
     }
+    
 
     componentDidMount() {
         this.setState({ contacts: getContacts() });
@@ -31,7 +38,7 @@ class ContactList extends Component {
 
         return (
             <React.Fragment>
-                <div style={this.headerStyle}>
+                <div style={this.styles.header}>
                     <p> Contact List </p>
                     <TextField
                         type="search"
@@ -54,8 +61,8 @@ class ContactList extends Component {
                 </div>
                 {!contacts.length && <p className="text-center mt-2"> No results </p>}
 
-                {   contacts.length == 0 &&
-                    <ul className="list-group">
+                {   contacts.length !== 0 &&
+                    <ul className="list-group" style={this.styles.list}>
                         {contacts.map(contact => <Contact contact={contact} key={contact._id} />)}
                     </ul>
                 }
