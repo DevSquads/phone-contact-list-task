@@ -49,7 +49,10 @@ class ContactsScreen extends Component {
     <ListItem
       title={item.name}
       subtitle={item.phoneNumbers && item.phoneNumbers[0].number}
-      leftAvatar={item.imageAvailable && { source: { uri: item.image.uri } }}
+      leftAvatar={item.imageAvailable ?
+        { source: { uri: item.image.uri } } :
+        { source: require('../../assets/avatar.jpg') }
+      }
     />
   );
 
