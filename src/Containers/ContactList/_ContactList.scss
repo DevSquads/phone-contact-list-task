@@ -1,8 +1,7 @@
-
 .ContactList {
   background-color: $backgroundcolor;
   &-head {
-    background-color:$maincolornav;
+    background-color: $maincolornav;
     border-radius: 5px;
     margin: 0 5px 5px 5px;
     padding: 5px;
@@ -27,9 +26,14 @@
       font-size: 2rem;
       height: 45px;
       color: $secondcolor;
-      &:focus{
-        border-bottom: 2px solid $secondcolor; 
+      &:focus {
+        border-bottom: 2px solid $secondcolor;
       }
     }
+  }
+  &-body {
+    display: list-item;
+    height: 88vh; 
+    overflow: auto; 
   }
 }

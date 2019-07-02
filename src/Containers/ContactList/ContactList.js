@@ -37,6 +37,11 @@ class ContactList extends Component {
         {
           _id: "12345f",
           contactName: "Ahmed Waheed"
+        },
+        {
+          _id: "12345h",
+          img: Img,
+          contactName: "Sara Waheed"
         }
       ],
       search: ""
@@ -48,8 +53,11 @@ class ContactList extends Component {
     });
   };
   render() {
-    let filteredContacts = this.state.contacts.filter((c)=>{
-      return c.contactName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    let filteredContacts = this.state.contacts.filter(c => {
+      return (
+        c.contactName.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+        -1
+      );
     });
     let contactList = filteredContacts ? (
       filteredContacts.map(contact => {
@@ -70,8 +78,12 @@ class ContactList extends Component {
       <div className="container ContactList">
         <div className="row d-flex justify-content-center">
           <div className="col-md-12 col-sm-6 ContactList-head">
-            <h4 className="col-md-3 col-sm-3 ContactList-head__title"> Contact List</h4>
-            <input className="col-md-3 col-sm-3 ContactList-head__search"
+            <h4 className="col-md-3 col-sm-3 ContactList-head__title">
+              {" "}
+              Contact List
+            </h4>
+            <input
+              className="col-md-3 col-sm-3 ContactList-head__search"
               type="text"
               value={this.state.search}
               onChange={event => this.changeHandler(event)}
@@ -80,8 +92,10 @@ class ContactList extends Component {
           </div>
         </div>
         <div className="row d-flex justify-content-center">
-          <div className="col-md-8 col-sm-6">
-            <ul className="list-group list-group-flush">{contactList}</ul>
+          <div className="col-md-8 col-sm-6 ">
+            <ul className="list-group list-group-flush ContactList-body">
+              {contactList}
+            </ul>
           </div>
         </div>
       </div>
