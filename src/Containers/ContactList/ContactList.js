@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContactCard from "../../Components/ContactCard/";
+import ContactCard from "../../Components/ContactCard";
 import Img from "../../assets/contactImg.jpg";
 
 class ContactList extends Component {
@@ -55,8 +55,7 @@ class ContactList extends Component {
   render() {
     let filteredContacts = this.state.contacts.filter(c => {
       return (
-        c.contactName.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
-        -1
+        c.contactName.toLowerCase().includes(this.state.search.toLowerCase())
       );
     });
     let contactList = filteredContacts ? (
@@ -87,7 +86,7 @@ class ContactList extends Component {
               type="text"
               value={this.state.search}
               onChange={event => this.changeHandler(event)}
-              placeholder="Search"
+              placeholder="Search Contacts"
             />
           </div>
         </div>
