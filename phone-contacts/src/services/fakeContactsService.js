@@ -602,6 +602,10 @@ const contacts = [
 ];
 
 
-exports.getContacts = (skip = 0) =>  {
-    return contacts.slice(skip, skip + 15);
+exports.getContacts = () =>  {
+	return contacts;
+}
+
+exports.filterContacts = (query) => {
+	return contacts.filter( ({name}) => name.toLowerCase().startsWith(query.toLowerCase()));
 }

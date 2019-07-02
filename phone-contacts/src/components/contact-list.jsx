@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getContacts } from './../services/fakeContactsService.js';
+import { getContacts, filterContacts } from './../services/fakeContactsService.js';
 import Contact from './contact.jsx';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -10,7 +10,8 @@ import SearchIcon from "@material-ui/icons/Search";
 class ContactList extends Component {
     state = {
         contacts: [],
-        searchQuery: ""
+        veiwedContacts: [], 
+        currentPageNum: 0
     }
     styles= {
         header: {
@@ -24,18 +25,17 @@ class ContactList extends Component {
             height:" calc(100vh - 7rem)" 
         }
     }
+    contactsPerPage = 10;
     
-
     componentDidMount() {
-        this.setState({ contacts: getContacts() });
+        this.setState({ veiwedContacts: getContacts()});
+        console.log(getContacts())
+        //this.paginate();
     }
 
     render() {
-        const { contacts: allContacts, searchQuery } = this.state;
-        let contacts = allContacts;
-        if (searchQuery)
-            contacts = contacts.filter(contact => contact.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
-
+        const { veiwedContacts } = this.state;
+            
         return (
             <React.Fragment>
                 <div style={this.styles.header}>
@@ -59,19 +59,29 @@ class ContactList extends Component {
                         onChange={(e) => this.handleSearch(e.target.value)}
                     />
                 </div>
-                {!contacts.length && <p className="text-center mt-2"> No results </p>}
+                {!veiwedContacts.length && <p className="text-center mt-2"> No results </p>}
 
-                {   contacts.length !== 0 &&
+                {   veiwedContacts.length !== 0 &&
                     <ul className="list-group" style={this.styles.list}>
-                        {contacts.map(contact => <Contact contact={contact} key={contact._id} />)}
+                        {veiwedContacts.map(contact => <Contact contact={contact} key={contact._id} />)}
                     </ul>
                 }
             </React.Fragment>);
     }
 
+    handleSearch = (searchQuery) => {
+        this.setState({ veiwedContacts: filterContacts(searchQuery), currentPageNum: 0 })
+    }
 
-    handleSearch = (searchQuery) =>
-        this.setState({ searchQuery })
+    paginate = () => {
+        const { currentPageNum, veiwedContacts, contacts } = this.state;
+        const slicingIndex = currentPageNum * this.contactsPerPage;
+        if(slicingIndex > contacts.length)
+            return;
+        const newContacts = veiwedContacts.concat(contacts.slice(slicingIndex, slicingIndex + this.contactsPerPage));
+        this.setState({veiwedContacts: newContacts, currentPageNum: currentPageNum + 1})
+    }
+        
 }
 
 export default ContactList;
