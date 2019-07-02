@@ -29,3 +29,10 @@
 - tests: https://codeburst.io/revisiting-react-testing-in-2019-ee72bb5346f4
 - Develop a React app using Test-Driven Development : https://testdriven.io/blog/tdd-with-react-jest-and-enzyme-part-one/
 
+
+
+# Delivery
+
+- I've switched the project to Expo
+- You can Find the APK for the app [here](https://expo.io/builds/c780e661-a80f-4759-a0b3-aae86ee590f8)
+- **Extra Feature:** I've added functionality to use phone contact :D
