@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ContactDetail from './ContactDetail';
+import ContactDetail from './components/ContactDetail';
 import './contacts.css';
-import Search from '../src/search'
+import Search from './components/search'
 
 const contactsAPI = 'https://demo1443058.mockable.io/codeproject_tutorial/api/contacts';
 // const contactsAPI = 'https://jsonplaceholder.typicode.com/users';

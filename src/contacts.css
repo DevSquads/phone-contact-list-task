@@ -17,11 +17,14 @@ body {
         margin-left: 10px;
     }
   }
-
+.title{
+    color: #0079ab;
+}
 .name {
     font-size: 20px;
     font-weight: 700;
     margin-left: 15px;
+    color: #0079ab;
 }
 .c-info {
     padding: 5px 10px;
@@ -33,7 +36,9 @@ body {
     height: 50px;
     position: absolute;
 }
-
+.fa {
+    color: #0079ab;
+}
 .contact-container{
     position: relative;
 }
