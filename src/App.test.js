@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import contactList from './contactList';
+import ContactDetail from './components/ContactDetail';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
@@ -12,7 +12,7 @@ it('renders without crashing', () => {
 
 describe('App component', () => {
   it('starts with a count of 0', () => {
-    const cas = shallow(<App />);
-    expect(cas.find(contactList)).toHaveLengthOf(1);
+    const component = shallow(<App />);
+    expect(component.find(ContactDetail)).toHaveLengthOf(1);
   });
 });
