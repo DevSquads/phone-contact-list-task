@@ -4,24 +4,30 @@ import Img from "../../assets/defaultImg.jpg";
 
 const ContactCard = props => {
   return (
-    <React.Fragment>
-      <div className="ContactCard-img">   
-        <img src={props.imgURL} alt="contact" />
-        <span>
-          <i className="fa fa-phone" aria-hidden="true" />
-        </span>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="ContactCard-img">
+            <img src={props.imgURL} alt="contact" />
+            <span>
+              <i className="fa fa-phone" aria-hidden="true" />
+            </span>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="ContactCard-detail">
+            <h2>{props.contactName}</h2>
+            <span>
+              <i className="fa fa-trash" aria-hidden="true" />
+            </span>
+            <span>
+              <i className="fa fa-pencil" aria-hidden="true" />
+            </span>
+            <p>{props.contactInfo}</p>
+          </div>
+        </div>
       </div>
-      <div className="ContactCard-detail">
-        <h2>{props.contactName}</h2>
-        <span>
-          <i className="fa fa-trash" aria-hidden="true" />
-        </span>
-        <span>
-          <i className="fa fa-pencil" aria-hidden="true" />
-        </span>
-        <p>{props.contactInfo}</p>
-      </div>
-    </React.Fragment>
+    </div>
   );
 };
 
