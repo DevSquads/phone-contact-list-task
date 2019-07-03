@@ -18,7 +18,11 @@ const ContactCard = props => {
           <div className="ContactCard-detail">
             <h2>{props.contactName}</h2>
             <span>
-              <i className="fa fa-trash" aria-hidden="true" />
+              <i
+                className="fa fa-trash"
+                onClick={()=>props.delete()}
+                aria-hidden="true"
+              />
             </span>
             <span>
               <i className="fa fa-pencil" aria-hidden="true" />

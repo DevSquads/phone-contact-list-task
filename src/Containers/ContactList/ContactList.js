@@ -52,11 +52,19 @@ class ContactList extends Component {
       search: event.target.value.substr(0, 15)
     });
   };
+  deleteHandler = (_id) => {
+    let ncontacts = [...this.state.contacts];
+    let index = ncontacts.findIndex(el => el._id === _id);
+    if (index !== -1) {
+      ncontacts.splice(index, 1);
+      this.setState({ contacts: ncontacts });
+    }
+  };
   render() {
     let filteredContacts = this.state.contacts.filter(c => {
-      return (
-        c.contactName.toLowerCase().includes(this.state.search.toLowerCase())
-      );
+      return c.contactName
+        .toLowerCase()
+        .includes(this.state.search.toLowerCase());
     });
     let contactList = filteredContacts ? (
       filteredContacts.map(contact => {
@@ -66,6 +74,7 @@ class ContactList extends Component {
               contactName={contact.contactName}
               imgURL={contact.img}
               contactInfo={contact.contactInfo}
+              delete={_id=>{this.deleteHandler(contact._id)}}
             />
           </li>
         );
