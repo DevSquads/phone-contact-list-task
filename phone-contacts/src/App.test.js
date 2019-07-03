@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { render, mount } from 'enzyme';
 import ContactList from './components/contact-list';
 import App from './App';
 
@@ -12,9 +12,9 @@ it('renders without crashing', () => {
 
 
 describe('App component', () => {
-  it('starts with a count of 0', () => {
-    const wrapper = shallow(<App />);
-    console.log("FFFFFFFFFFFFFFFFFFFFF", wrapper)
-    expect(wrapper.find('ContactList')).toHaveLengthOf(1);
+  it('should have 1 <contactList/> ', () => {
+    const wrapper = mount(<App />);
+    expect(wrapper.find(ContactList)).toBeTruthy();
+    expect(wrapper.find(ContactList).length).toBe(1);
   });
 });

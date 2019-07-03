@@ -1,6 +1,7 @@
 
 import React from "react";
 import { create } from "react-test-renderer";
+import { render, mount } from 'enzyme';
 
 import ContactList from './../../components/contact-list'
 
@@ -14,10 +15,9 @@ describe('Contact List Component <ContactList/>', () => {
     });
 
     it("should shows the expected title", () => {
-        const component = create(<ContactList />);
-        const rootInstance = component.root;
-        const paragraph = rootInstance.findByType("p");
-        console.log(paragraph)
+        const shallow = render(<ContactList />);
+        const paragraph = shallow.find("p");
+        expect(paragraph.text().trim()).toBe("Contact List");
       
     });
 })
