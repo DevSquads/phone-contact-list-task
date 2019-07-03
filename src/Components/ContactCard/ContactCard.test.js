@@ -7,11 +7,12 @@ import {
   Adapter,
   enzymeSerializer
 } from "../../test/config";
-import { ContactCard } from "./ContactCard";
+import  ContactCard  from "./ContactCard";
 
-describe("just a fake test", () => {
-  test("fake test", () => {
-    expect(true).toBeTruthy();
-    expect(false).toBeFalsy();
+configure({ adapter: new Adapter() });
+describe("ContactCard render", () => {
+  it("should has contactName", () => {
+    const wrapper = shallow(<ContactCard />);
+    expect(wrapper.find("h2"));
   });
 });
