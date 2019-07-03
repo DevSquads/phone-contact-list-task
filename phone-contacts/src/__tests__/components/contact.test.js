@@ -14,8 +14,7 @@ describe( 'Contact Component <Contact/>', () => {
 
     it('should set contact Img correctly', () => {
         const wrapper = render(<Contact  contact={contact}/>);
-        console.log("Component: ", wrapper.find('img'));
-        const instance = component.getInstance();
+        expect(wrapper.find('img').prop('src')).toEqual(`https://ui-avatars.com/api/?background=4a577a&name=Doaa+Ismael&color=fff`);
     });
 
 })
