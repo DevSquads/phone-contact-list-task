@@ -4,7 +4,6 @@ import Img from "../../assets/defaultImg.jpg";
 
 const ContactCard = props => {
   return (
-    <div className="container">
       <div className="row">
         <div className="col-md-6">
           <div className="ContactCard-img">
@@ -31,7 +30,6 @@ const ContactCard = props => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
