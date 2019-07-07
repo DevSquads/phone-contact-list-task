@@ -15,6 +15,7 @@ class Contact extends Component {
             contactList: [],
             searchText: '',
             searchResult: [],
+            alpha: []
         }
         this.handleSearch = this.handleSearch.bind(this);
         this.returnContactList = this.returnContactList.bind(this);
@@ -22,17 +23,25 @@ class Contact extends Component {
 
     handleSearch(searchText) {
 
-        this.setState({ searchResult: [], searchText: searchText });
-        this.state.contactList.map(contact => {
+        // this.setState({ searchResult: [], searchText: searchText });
+        // this.state.contactList.map(contact => {
 
-            if (searchContact(contact, searchText)) {
-                this.setState(prevState => ({
-                    searchResult: [...prevState.searchResult, contact]
-                }), () => console.log(this.state.searchResult))
-            }
-        })
+        //     if (searchContact(contact, searchText)) {
+        //         this.setState(prevState => ({
+        //             searchResult: [...prevState.searchResult, contact]
+        //         }), () => console.log(this.state.searchResult))
+        //     }
+        // })
+
+        const {contactList} = this.state;
+        console.log(contactList)
+        const contactsResult = contactList.filter(({name, surname}) => (
+            name.toLowerCase().includes(searchText.toLowerCase()) ||
+            surname.toLowerCase().includes(searchText.toLowerCase())
+        ));
+       this.setState({searchResult: [...contactsResult], searchText});
     }
-    componentWillMount() {
+    componentDidMount() {
         let init = {
             method: 'GET',
             headers: new Headers(),
@@ -43,11 +52,16 @@ class Contact extends Component {
         fetch(contactsAPI, init)
             .then(response => response.json())
             .then(
-                data => this.setState(
+                data =>  {
+                    const {contacts} = data;
+                    contacts.sort(({name: name1}, {name: name2}) => (name1 >= name2) ? 1 : -1);
+                    const alpha = contacts.map(item => item.name[0]);
+                    this.setState(
                     prevState => ({
-                        contactList: [...data.contacts]
-                    })
-                )
+                        contactList: [...contacts],
+                        alpha
+                    }))
+                }
             )
 
         //   fetch(contactsApi, init)
@@ -60,16 +74,31 @@ class Contact extends Component {
         return this.state.searchText ? this.state.searchResult : this.state.contactList
     }
     render() {
+        const searchResult = this.returnContactList();
+        let alphaLabel = '', change = false;
+
         return (
             <div>
                 <Search onSearch={this.handleSearch} />
                 <br />
                 <ul className="list-group" id="contact-list">
-                    {this.returnContactList().map(
-                        (contact) =>
-                            <li key={contact.email} className="list-group-item">
+                    {searchResult.map(
+                        (contact, idx) => {
+                            if(idx == 0 || contact.name.toUpperCase()[0] !== alphaLabel) {
+                                alphaLabel =  contact.name.toUpperCase()[0];
+                                change = true;
+                            } else {
+                                change = false;
+                            }
+                            return (
+                            
+                                <li key={contact.email} className="list-group-item">
+                                 {change && <label>{alphaLabel}</label>}
                                 <ContactDetail contact={contact} />
                             </li>
+                            )
+                        
+                        }
                     )}
                 </ul>
             </div>
