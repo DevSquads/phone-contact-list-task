@@ -10,38 +10,45 @@ class ContactList extends Component {
         {
           _id: "12345a",
           img: Img,
-          contactName: "Fatma Reda"
+          contactName: "Fatma Reda",
+          number:"01100000000"
         },
         {
           _id: "12345b",
           img: Img,
           contactName: "Aya Reda",
-          contactInfo: "Content Writer"
+          contactInfo: "Content Writer",
+          number:"01100000000"
         },
         {
           _id: "12345c",
           img: Img,
           contactName: "Hager Hassan",
-          contactInfo: "Marketer"
+          contactInfo: "Marketer",
+          number:"01100000000"
         },
         {
           _id: "12345d",
           img: Img,
           contactName: "Fatma Alaa",
-          contactInfo: "Marketer"
+          contactInfo: "Marketer",
+          number:"01100000000"
         },
         {
           _id: "12345e",
-          contactName: "Abd El Rahman"
+          contactName: "Abd El Rahman",
+          number:"01100000000"
         },
         {
           _id: "12345f",
-          contactName: "Ahmed Waheed"
+          contactName: "Ahmed Waheed",
+          number:"01100000000"
         },
         {
           _id: "12345h",
           img: Img,
-          contactName: "Sara Waheed"
+          contactName: "Sara Waheed",
+          number:"01100000000"
         }
       ],
       search: ""
