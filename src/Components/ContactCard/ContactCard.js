@@ -35,7 +35,7 @@ const ContactCard = props => {
   );
 };
 
-ContactCard.proptype = {
+ContactCard.Proptype = {
   contactName: Proptype.string.isRequired,
   imgURL: Proptype.string,
   contactInfo: Proptype.string

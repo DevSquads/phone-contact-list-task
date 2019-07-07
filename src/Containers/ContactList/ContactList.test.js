@@ -10,8 +10,6 @@ import {
 import ContactList from "./ContactList";
 import ContactCard from "../../Components/ContactCard/ContactCard";
 
-configure({ adapter: new Adapter() });
-
 describe("ContactList component renders a list of ContactCard", () => {
   let wrapper;
   beforeEach(() => {
