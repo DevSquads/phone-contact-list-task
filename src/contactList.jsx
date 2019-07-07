@@ -87,6 +87,7 @@ class Contact extends Component {
                             if(idx == 0 || contact.name.toUpperCase()[0] !== alphaLabel) {
                                 alphaLabel =  contact.name.toUpperCase()[0];
                                 change = true;
+                                // console.log(idx);
                             } else {
                                 change = false;
                             }
