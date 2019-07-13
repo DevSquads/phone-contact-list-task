@@ -16,11 +16,15 @@ code {
 .scroll{
   overflow-y: scroll;
   display: 'block';
-  height: 400px;
+  height: 500px;
   
 }
 img{
   background-color: green;
   border-style: ridge;
   border-color: darkorange;
+}
+.mysection {
+  display: flex;
+  justify-content: center;
 }

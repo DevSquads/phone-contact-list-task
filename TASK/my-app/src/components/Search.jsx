@@ -1,7 +1,6 @@
 import React, { Component }  from 'react';
 import { Button,Container,FormControl,InputGroup   } from 'react-bootstrap';
 
-import searchLogo from '../search-icon.jpg'
 class Search extends Component {
 
   render(){

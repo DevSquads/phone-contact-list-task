@@ -9,7 +9,8 @@ class App extends Component {
     return (
       
       <div >
-        <Container>
+        
+        <Container >
           <Row>
             <h1>
               My Contacts
