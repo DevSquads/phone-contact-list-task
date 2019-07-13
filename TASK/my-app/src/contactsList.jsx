@@ -7,8 +7,8 @@ class Contacts extends Component {
     constructor(props){
         super(props);
         this.state={
-            contacts:[]
-        }
+            contacts:[],
+            searchContacts:[]        }
     }
     componentDidMount(){
         fetch(dataAPI)
@@ -16,11 +16,9 @@ class Contacts extends Component {
         .then(data=>{
             let list=data.map(user=>{
                 return(
-                    <div className="list-group-item" key={user.email}>
+                    <div className="list-group-item" key={user.id} fullname={user.name}>
                         <Container>
-
                                 <Row>
-
                                     <Col>
                                     <Image  src={user.photo} roundedCircle />
                                     </Col>
@@ -31,7 +29,6 @@ class Contacts extends Component {
                                         <Row className="list-group-item"><h6>Phone No.: {user.phone}</h6></Row>
                                     </Col>
                                 </Row>
-                           
                         </Container>
                         <br/>
                     </div>
@@ -43,17 +40,20 @@ class Contacts extends Component {
 
         })
     }
-    
+    handleSearchTxt=(e)=>{
+        let searchTxt=e.target.value.toLowerCase();
+        let list = this.state.contacts.filter(user=>{
+                return(user.props.fullname.toLowerCase().includes(searchTxt))
+        })
+        this.setState({searchContacts:list})
+    }
     render(){
         return (
         <div className="App" >    
-            <Search></Search>     
-            <br/>
+            <Search handleSearchTxt={this.handleSearchTxt}/>     
 
             <div className='scroll list-group-item'>
-                {console.log(this.state.contacts)}
-
-                  {this.state.contacts}
+                {this.state.searchContacts.length!==0?this.state.searchContacts:this.state.contacts}
             </div>
         </div>
         );

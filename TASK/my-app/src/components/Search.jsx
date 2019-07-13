@@ -11,7 +11,7 @@ class Search extends Component {
       <div>
         <Container>
           <InputGroup className="mb-3">
-            <FormControl placeholder="Search For A Contact"/>
+            <FormControl onChange={this.props.handleSearchTxt} placeholder="Search For A Contact"/>
             <InputGroup.Append>
               <Button variant="outline-info">
                 Search
