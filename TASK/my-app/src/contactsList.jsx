@@ -8,7 +8,9 @@ class Contacts extends Component {
         super(props);
         this.state={
             contacts:[],
-            searchContacts:[]        }
+            searchContacts:[],
+            searchTxt:""       
+        }
     }
     componentDidMount(){
         fetch(dataAPI)
@@ -41,10 +43,11 @@ class Contacts extends Component {
         })
     }
     handleSearchTxt=(e)=>{
-        let searchTxt=e.target.value.toLowerCase();
+        this.setState({searchTxt:e.target.value});
         let list = this.state.contacts.filter(user=>{
-                return(user.props.fullname.toLowerCase().includes(searchTxt))
+                return(user.props.fullname.toLowerCase().includes(e.target.value.toLowerCase()))
         })
+        
         this.setState({searchContacts:list})
     }
     render(){
@@ -53,7 +56,7 @@ class Contacts extends Component {
             <Search handleSearchTxt={this.handleSearchTxt}/>     
 
             <div className='scroll list-group-item'>
-                {this.state.searchContacts.length!==0?this.state.searchContacts:this.state.contacts}
+                {this.state.searchTxt.length!==0?this.state.searchContacts:this.state.contacts}
             </div>
         </div>
         );
