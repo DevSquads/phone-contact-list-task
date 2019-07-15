@@ -10,16 +10,19 @@ import {
   TextInput,
   Keyboard,
   Platform,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Dimensions
 } from "react-native";
 import Icon from "react-native-vector-icons/EvilIcons";
 import * as Animatable from "react-native-animatable";
 
+// User Defined Components Imports
+import NamesList from "../Components/NamesList";
+
 export default class ContactsList extends React.Component {
   state = {
     search: "",
-    searchBarFocused: false,
-    orientation: "portrait"
+    searchBarFocused: false
   };
 
   // Implementing life-cycle Functions
@@ -85,6 +88,7 @@ export default class ContactsList extends React.Component {
               />
             </Animatable.View>
           </View>
+          <NamesList />
         </View>
       </TouchableWithoutFeedback>
     );
@@ -119,6 +123,7 @@ export default class ContactsList extends React.Component {
 }
 
 // Styles
+const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   header: {
     height: 120,
@@ -145,12 +150,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 40,
     backgroundColor: "#005bac",
-    borderRadius: 100,
-    width: "75%",
+    borderRadius: 0.1 * width,
+    width: 0.75 * width,
     marginTop: 20
   },
   input: {
-    height: 40,
+    height: 0.4 * height,
     flex: 1,
     color: "#fff"
   }

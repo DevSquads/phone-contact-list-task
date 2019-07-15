@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Ahmed Sami",
+    "subtitle": "React Native Developer"
+  },
+  {
+    "name": "Amr Mohammed",
+    "subtitle": "Back End Developer"
+  },
+  {
+    "name": "Ibrahim Mosaad",
+    "subtitle": "Front End Developer"
+  },
+  {
+    "name": "Ahmed Omar",
+    "subtitle": "Project Manager"
+  },
+  {
+    "name": "Khaled Essam",
+    "subtitle": "Scrum Master"
+  },
+  {
+    "name": "Ali Abdullah",
+    "subtitle": "Database Developer"
+  },
+  {
+    "name": "Emad Abdul-Wahab",
+    "subtitle": "UI Designer"
+  },
+  {
+    "name": "Omar Ali",
+    "subtitle": "Android Developer"
+  },
+  {
+    "name": "Ahmed Hossam",
+    "subtitle": "IOS Developer"
+  },
+  {
+    "name": "Badr Ali",
+    "subtitle": "BI Developer"
+  },
+  {
+    "name": "Jamal Kamel",
+    "subtitle": "CEO"
+  }
+]
