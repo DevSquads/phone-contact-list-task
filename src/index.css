@@ -1,0 +1,22 @@
+/*
+app variables
+*/
+
+:root {
+  /* font */
+  --main-font: 'Roboto', sans-serif;
+  --normal-weight: 500;
+  --light-weight: 300;
+
+}
+
+/*
+app CSS reset
+*/
+
+body, div, p {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
