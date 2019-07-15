@@ -72,7 +72,27 @@
     "subtitle": "UI Desginer"
   },
   {
-    "name": "Youssef Attia",
+    "name": "Asser Mohammed",
     "subtitle": "Software Tester"
+  },
+  {
+    "name": "Essayed Moustafa",
+    "subtitle": "UI Designer"
+  },
+  {
+    "name": "Ismail Nabarawy",
+    "subtitle": "Embedded Engineer"
+  },
+  {
+    "name": "Mohammed Ali",
+    "subtitle": "React Native Developer"
+  },
+  {
+    "name": "Mohammed Mahmoud",
+    "subtitle": "Front End Developer"
+  },
+  {
+    "name": "Mohammed Hashem",
+    "subtitle": "Back End Developer"
   }
 ]

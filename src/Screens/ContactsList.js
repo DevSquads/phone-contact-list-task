@@ -54,6 +54,7 @@ export default class ContactsList extends React.Component {
 
   render() {
     const { search } = this.state;
+
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{ flex: 1 }}>
@@ -88,7 +89,7 @@ export default class ContactsList extends React.Component {
               />
             </Animatable.View>
           </View>
-          <NamesList />
+          <NamesList searchText={this.state.search} />
         </View>
       </TouchableWithoutFeedback>
     );
@@ -126,7 +127,7 @@ export default class ContactsList extends React.Component {
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   header: {
-    height: 120,
+    height: height * 0.154,
     backgroundColor: "#00529B",
     shadowColor: "#000",
     shadowOpacity: 0.3,
@@ -139,20 +140,20 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   name: {
-    fontSize: 20,
+    fontSize: 17,
     fontFamily: "Roboto-Medium",
     color: "#fff",
-    paddingTop: 20
+    paddingTop: 0.02 * height
   },
   inputContainer: {
     flexDirection: "row",
     padding: 5,
     alignItems: "center",
-    height: 40,
+    height: 0.06 * height,
     backgroundColor: "#005bac",
-    borderRadius: 0.1 * width,
+    borderRadius: 25,
     width: 0.75 * width,
-    marginTop: 20
+    marginTop: 0.02 * height
   },
   input: {
     height: 0.4 * height,
