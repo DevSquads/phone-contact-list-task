@@ -23,7 +23,7 @@ h1{
 .scroll{
   overflow-y: scroll;
   display: 'block';
-  height:35vw;
+  height:29rem;
 }
 img{
   background-color: green;
@@ -39,6 +39,5 @@ img{
 }
 .secbox{
   display: flex;
-  align-items: center;
   justify-content: center;
 }
