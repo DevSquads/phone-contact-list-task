@@ -1,0 +1,33 @@
+.SingleContact{
+    height:70px;
+    border-bottom:1px solid #e7ebee;
+    position:relative;
+}
+.SingleContact:hover{
+    background:#f1f4f6;
+    cursor:pointer;
+}
+.SingleContact img{
+    width:40px;
+    border-radius:50%;
+    margin:15px;
+    float:left;
+}
+.SingleContact p{
+
+    float:left;
+    width:50%;
+}
+.SingleContact p strong{
+    font-weight:600;
+    font-size:15px;
+    color:#597a96;
+
+
+}
+.SingleContact p span{
+    font-size:13px;
+    font-weight:400;
+    color:#aab8c2;
+    display: block;
+}
