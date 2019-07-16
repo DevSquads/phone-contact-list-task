@@ -1,0 +1,30 @@
+.PersonItem {
+    width: 100%;
+    /* background-color: red; */
+    height: 105px;
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    transition: all .2s ease-in-out;
+}
+
+.PersonItem:hover {
+    transform: scale(1.1);
+}
+
+.imgCircle {
+
+    /* display: inline; */
+    margin: 0 auto;
+    /* margin-left: -25%; */
+    height: 100%;
+    width: auto;
+
+}
+
+.imgContainer {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
