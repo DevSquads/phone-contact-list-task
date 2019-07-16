@@ -1,3 +1,5 @@
+
+
 body {
   
 
@@ -16,15 +18,11 @@ code {
 .scroll{
   overflow-y: scroll;
   display: 'block';
-  height: 500px;
-  
+  /*height: 500px;*/
+  height:15%;
 }
 img{
   background-color: green;
   border-style: ridge;
   border-color: darkorange;
-}
-.mysection {
-  display: flex;
-  justify-content: center;
 }

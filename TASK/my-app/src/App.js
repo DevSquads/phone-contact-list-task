@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import Contacts from './contactsList'
 import { Container, Row } from 'react-bootstrap';
-
+import './index.css'
 class App extends Component {
 
   render(){
@@ -10,7 +10,7 @@ class App extends Component {
       
       <div >
         
-        <Container >
+        <Container className="list-group-item">
           <Row>
             <h1>
               My Contacts
