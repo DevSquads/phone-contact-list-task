@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import ContactsList from '../Components/ContactsList';
 import { InputGroup } from '@blueprintjs/core';
 
@@ -15,4 +15,28 @@ describe('ContactsList', () => {
         expect(wrapper.containsMatchingElement(<InputGroup />)).toEqual(true);
     });
 
+    it('renders the Contact Component', () => {
+        expect(wrapper.containsMatchingElement(<Contact />)).toEqual(true);
+    });
+
+});
+
+describe('mounted ContactsList', () => {
+    let wrapper;
+    beforeEach(() => wrapper = mount(<ContactsList />));
+    
+    it('returns the searched contact', () => {
+        const input = wrapper.find('input');
+        wrapper.instance().forceUpdate();
+        input.simulate('change', { target: { value: 'george' } })
+        expect(wrapper.instance().state.Contacts[0].name).toEqual('George Martin');
+    });
+
+    it('returns -only- the searched contact', () => {
+        const input = wrapper.find('input');
+        wrapper.instance().forceUpdate();
+        input.simulate('change', { target: { value: 'w' } })
+        expect(wrapper.instance().state.Contacts.length).toEqual(2);
+    });
+    
 });

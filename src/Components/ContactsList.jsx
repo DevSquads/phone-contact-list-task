@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import { InputGroup } from '@blueprintjs/core';
+import { getContacts } from '../DataSource/ContactsData';
+import Contact from './Contact';
 
 class ContactsList extends Component {
+    state = {
+        Contacts: getContacts()
+    }
+
+    handleSearch = (searchText) => {
+        this.setState({
+            Contacts: getContacts(searchText)
+        });
+    };
+
     render = () => {
         return (
             <div className="contacts-list-container">
@@ -11,13 +23,21 @@ class ContactsList extends Component {
                         fill="true"
                         large="true"
                         leftIcon="search"
-                        onChange=""
+                        onChange={(event) => this.handleSearch(event.target.value)}
                         placeholder="Search.."
                         type="text"
                     />
                 </div>
                 <div className="contacts-container">
-
+                    <ul className="contacts-list bp3-list-unstyled">
+                        {this.state.Contacts.map((contact) => 
+                            <Contact
+                                ikey={contact.id}
+                                name={contact.name}
+                                desc={contact.desc}
+                            />
+                        )}
+                    </ul>
                 </div>
             </div>
         );
