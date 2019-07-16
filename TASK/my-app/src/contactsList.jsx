@@ -21,10 +21,10 @@ class Contacts extends Component {
                     <div className="list-group-item" key={user.id} fullname={user.name}>
                         <Container>
                                 <Row>
-                                    <Col>
+                                    <Col className='box' md={6} >
                                     <Image  src={user.photo} roundedCircle />
                                     </Col>
-                                    <Col>
+                                    <Col md={6}>
                                         <Row className="list-group-item"><h6>Name: {user.name}</h6></Row>
                                         <Row className="list-group-item"><h6>Gender: {user.gender}</h6></Row>
                                         <Row className="list-group-item"><h6>E-Mail: {user.email}</h6></Row>
@@ -52,11 +52,13 @@ class Contacts extends Component {
     }
     render(){
         return (
-        <div  >    
+        <div >    
             <Search handleSearchTxt={this.handleSearchTxt}/>     
+            <div className="secbox">
 
-            <div className='scroll list-group-item' style={{width:'60vw'}}>
-                {this.state.searchTxt.length!==0?this.state.searchContacts:this.state.contacts}
+                <div className='scroll list-group-item' style={{width:'60vw'}}>
+                    {this.state.searchTxt.length!==0?this.state.searchContacts:this.state.contacts}
+                </div>
             </div>
         </div>
         );

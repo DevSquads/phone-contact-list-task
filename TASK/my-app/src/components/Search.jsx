@@ -9,7 +9,7 @@ class Search extends Component {
       
       <div>
         <Container>
-          <InputGroup className="mb-3">
+          <InputGroup className="mb-3" style={{width:'100%'}} >
             <FormControl onChange={this.props.handleSearchTxt} placeholder="Search For A Contact"/>
             <InputGroup.Append>
               <Button variant="outline-info">
