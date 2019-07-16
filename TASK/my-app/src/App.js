@@ -10,7 +10,7 @@ class App extends Component {
       
       <div >
         
-        <Container className="list-group-item mt-4" style={{height:'45vw', backgroundColor:'#2A52BE'}}>
+        <Container className="list-group-item mt-4" style={{ backgroundColor:'#2A52BE'}}>
           <Row className="box">
             <h1 style={{color:'white'}}>
               My Contacts
