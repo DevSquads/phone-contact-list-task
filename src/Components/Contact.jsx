@@ -10,6 +10,8 @@ const Contact = ({id, name, desc}) => {
                 name={name}
                 maxInitials={2}
                 round={true}
+                size={60}
+                textSizeRatio={2}
             />
             <div className="contact-data">
                 <h3 className="contact-name bp3-heading">{name}</h3>

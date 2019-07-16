@@ -60,9 +60,9 @@
     width: 100%;
 }
 
-/* .contacts-list-item .contact-avatar {
-
-} */
+.contacts-list-item .contact-avatar span {
+    font-family: var(--main-font);
+}
 
 .contacts-list-item .contact-data {
     display: flex;
@@ -71,9 +71,9 @@
     margin-left: 7%;
 }
 
-/* .contact-data .contact-name {
-
-} */
+.contact-data .contact-name {
+    margin: 0 !important;
+}
 
 /* .contact-data .contact-desc {
 
