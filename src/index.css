@@ -16,6 +16,9 @@ app variables
   --contacts-list-height: 87%;
   --contacts-list-width: 32%;
 
+  --search-container-height: 60px;
+  --contacts-container-height: calc(100% - var(--search-container-height));
+
   /* shadows */
   --search-input-shadow: 0px 6px 6px 0px rgba(153,153,153,0.3);
   --search-input-shadow-focus: 0px 7px 7px 0px rgba(153,153,153,0.3);
@@ -43,6 +46,7 @@ app CSS reset
 
 body {
   background-color: #DFE2E9;
+  overflow: hidden;
 }
 
 body, div, p {
@@ -50,4 +54,26 @@ body, div, p {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*
+Scrollbar CSS
+*/
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+/* Track */
+/* ::-webkit-scrollbar-track {
+
+} */
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E1E8ED;
+  border-radius: 5px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #D8E1E8;  
 }

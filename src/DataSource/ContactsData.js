@@ -22,11 +22,25 @@ const ContactsTable = [
     { id: '20', name: 'Mark Watney', desc: 'Astronaut' },
 ];
 
+function compare(a, b) {
+    // Use toUpperCase() to ignore character casing
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+        comparison = 1;
+    } else if (nameA < nameB) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
 exports.getContacts = (search) => {
     var regex = new RegExp(search, 'gi');
     if(search) {
-        return ContactsTable.filter((contact) => regex.test(contact.name));
+        return ContactsTable.filter((contact) => regex.test(contact.name)).sort(compare);
     } else {
-        return ContactsTable;
+        return ContactsTable.sort(compare);
     }
 };

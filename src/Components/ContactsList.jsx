@@ -25,14 +25,14 @@ class ContactsList extends Component {
                         leftIcon="search"
                         onChange={(event) => this.handleSearch(event.target.value)}
                         placeholder="Search.."
-                        type="text"
+                        type="search"
                     />
                 </div>
                 <div className="contacts-container">
                     <ul className="contacts-list bp3-list-unstyled">
                         {this.state.Contacts.map((contact) => 
                             <Contact
-                                ikey={contact.id}
+                                id={contact.id}
                                 name={contact.name}
                                 desc={contact.desc}
                             />

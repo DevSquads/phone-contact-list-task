@@ -6,6 +6,7 @@
     "@blueprintjs/core": "^3.17.1",
     "@blueprintjs/icons": "^3.9.1",
     "react": "^16.8.6",
+    "react-avatar": "^3.6.0",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },

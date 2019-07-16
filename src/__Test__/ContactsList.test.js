@@ -2,10 +2,15 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import ContactsList from '../Components/ContactsList';
 import { InputGroup } from '@blueprintjs/core';
+import Contact from '../Components/Contact';
 
 describe('ContactsList', () => {
     let wrapper;
     beforeEach(() => wrapper = shallow(<ContactsList />));
+
+    it('should render correctly', () => {
+        expect(wrapper).toMatchSnapshot();
+    });
 
     it('renders the contacts list divs', () => {
         expect(wrapper.find('div').length).toEqual(3);
