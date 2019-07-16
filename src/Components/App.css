@@ -1,0 +1,80 @@
+
+.app-container {
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contacts-list-container {
+    background-color: var(--contacts-list-background-color);
+    height: var(--contacts-list-height);
+    width: var(--contacts-list-width);
+    border-radius: var(--container-radius);
+    box-shadow: var(--search-input-shadow-focus) !important;
+}
+
+.search-container {
+    height: var(--search-container-height);
+}
+
+.search-container .search-field input {    
+    font-weight: var(--normal-weight) !important;
+    box-shadow: var(--search-input-shadow) !important;
+    border-top-left-radius: var(--container-radius) !important;
+    border-top-right-radius: var(--container-radius) !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    height: 60px !important;
+    padding-left: 60px !important;
+}
+
+.search-container .search-field input:focus {
+    box-shadow: var(--search-input-shadow-focus) !important;
+}
+
+.search-container .search-field span {
+    margin: 22px !important;
+}
+
+.contacts-container {
+    height: var(--contacts-container-height) !important;
+    overflow-y: scroll;
+}
+
+.contacts-container .contacts-list {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0px;
+    overflow-x: hidden;
+}
+
+.contacts-list .contacts-list-item {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 3% 7%;
+    width: 100%;
+}
+
+.contacts-list-item .contact-avatar span {
+    font-family: var(--main-font);
+}
+
+.contacts-list-item .contact-data {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: 7%;
+}
+
+.contact-data .contact-name {
+    margin: 0 !important;
+}
+
+.contact-data .contact-desc {
+    margin: 0 !important;
+}
