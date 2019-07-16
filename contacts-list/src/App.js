@@ -11,10 +11,7 @@ export default class App extends React.Component {
     ListOFConatcts: ArrData
   };
   HandleSearch = SearchText => {
-    console.log("before");
     if (SearchText != "") {
-      console.log("afteriftrue");
-
       const filterdArr = ArrData.filter(item => {
         var PerName = item.name.toLowerCase();
         return (
@@ -25,7 +22,6 @@ export default class App extends React.Component {
       console.log(filterdArr);
       this.setState({ ListOFConatcts: filterdArr });
     } else {
-      console.log("afteriffalse");
       this.setState({ ListOFConatcts: ArrData });
     }
   };
@@ -33,8 +29,7 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-3" />
-          <div className="col-9 mt-5">
+          <div className="offset-2 col-8 mt-5">
             <SerchBar HandelSearchChange={this.HandleSearch} />
             <div className="row pre-scrollable " style={{ height: "600px" }}>
               {this.state.ListOFConatcts.map(i => {

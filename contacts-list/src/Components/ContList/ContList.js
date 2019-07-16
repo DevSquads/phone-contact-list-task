@@ -9,7 +9,7 @@ export default class ContList extends Component {
 
   render() {
     return (
-      <div className="col-6  mt-5 ">
+      <div className="col-12 col-sm-12 col-lg-6 col-md-12    mt-5 ">
         <div className="PersonItem media">
           <div className="imgContainer   ">
             <img className="imgCircle   " src={this.props.imageU} />
@@ -26,14 +26,4 @@ export default class ContList extends Component {
       </div>
     );
   }
-}
-
-{
-  /* <div class="media">
-  <img src="..." class="mr-3" alt="...">
-  <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-  </div>
-</div> */
 }
