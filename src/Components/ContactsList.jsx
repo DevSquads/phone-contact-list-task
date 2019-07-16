@@ -15,6 +15,9 @@ class ContactsList extends Component {
     };
 
     render = () => {
+
+        const { Contacts } = this.state;
+
         return (
             <div className="contacts-list-container">
                 <div className="search-container">
@@ -30,7 +33,7 @@ class ContactsList extends Component {
                 </div>
                 <div className="contacts-container">
                     <ul className="contacts-list bp3-list-unstyled">
-                        {this.state.Contacts.map((contact) => 
+                        {Contacts.map((contact) => 
                             <Contact
                                 id={contact.id}
                                 name={contact.name}

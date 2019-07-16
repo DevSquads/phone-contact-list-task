@@ -39,7 +39,7 @@ function compare(a, b) {
 exports.getContacts = (search) => {
     var regex = new RegExp(search, 'gi');
     if(search) {
-        return ContactsTable.filter((contact) => regex.test(contact.name)).sort(compare);
+        return ContactsTable.filter(({name}) => name.match(regex)).sort(compare);
     } else {
         return ContactsTable.sort(compare);
     }
