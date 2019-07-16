@@ -2,27 +2,22 @@ import React from "react";
 import logo from "./logo.svg";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import ArrData from "./DummyData";
+import ContList from "./Components/ContList/ContList";
+import SerchBar from "./Components/SerchBar/SerchBar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <button className="btn btn-danger">Hello </button>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    ListOFConatcts: ArrData
+  };
+  render() {
+    return (
+      <div>
+        <SerchBar />
+        {this.state.ListOFConatcts.map(i => {
+          return <ContList name={i["name"]} imageU={i["ImgUrl"]} />;
+        })}
+      </div>
+    );
+  }
 }
-
-export default App;
