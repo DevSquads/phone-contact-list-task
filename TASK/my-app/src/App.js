@@ -10,14 +10,14 @@ class App extends Component {
       
       <div >
         
-        <Container className="list-group-item">
-          <Row>
-            <h1>
+        <Container className="list-group-item mt-4" style={{height:'45vw', backgroundColor:'#2A52BE'}}>
+          <Row className="box">
+            <h1 style={{color:'white'}}>
               My Contacts
             </h1>
           </Row>
-          <Row>
-            < Contacts/>
+          <Row className="box">
+            < Contacts className="box"/>
           </Row>
         </Container>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import { Container, Row, Col,Image } from 'react-bootstrap';
 import Search from './components/Search'
-
+import './index.css'
 const dataAPI='http://demo9212539.mockable.io/contacts'
 class Contacts extends Component {
     constructor(props){
@@ -52,10 +52,10 @@ class Contacts extends Component {
     }
     render(){
         return (
-        <div className="App" >    
+        <div  >    
             <Search handleSearchTxt={this.handleSearchTxt}/>     
 
-            <div className='scroll list-group-item'>
+            <div className='scroll list-group-item' style={{width:'60vw'}}>
                 {this.state.searchTxt.length!==0?this.state.searchContacts:this.state.contacts}
             </div>
         </div>
