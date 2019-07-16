@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Todoitem from "./Todoitem";
+import Contactitem from "./Contactitem";
 import PropTypes from "prop-types";
 
-export class Todos extends Component {
+export class Contacts extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,8 +14,8 @@ export class Todos extends Component {
   }
 
   render() {
-    let filteredcontatcs = this.props.todos.filter(todo => {
-      return todo.name.indexOf(this.state.search) !== -1;
+    let filteredcontatcs = this.props.contacts.filter(contact => {
+      return contact.name.indexOf(this.state.search) !== -1;
     });
     return (
       <div>
@@ -32,9 +32,9 @@ export class Todos extends Component {
             style={{ background: "#264d73", color: "#f8f8f8" }}
           />
         </div>
-        {filteredcontatcs.map(todo => (
+        {filteredcontatcs.map(contact => (
           <h3>
-            <Todoitem key={todo.id} todo={todo} />
+            <Contactitem key={contact.id} contact={contact} />
           </h3>
         ))}
       </div>
@@ -42,8 +42,8 @@ export class Todos extends Component {
   }
 }
 
-Todos.propTypes = {
-  todos: PropTypes.array.isRequired
+Contacts.propTypes = {
+  contacts: PropTypes.array.isRequired
 };
 
-export default Todos;
+export default Contacts;

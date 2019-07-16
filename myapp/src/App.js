@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Todos from "./components/Todos";
+import Contacts from "./components/Contacts";
 import Header from "./components/layout/Header";
 import a1 from "./components/a1.png";
 import a2 from "./components/a2.png";
@@ -11,7 +10,7 @@ import a5 from "./components/a5.png";
 
 class App extends Component {
   state = {
-    todos: [
+    contacts: [
       {
         id: 1,
         name: "Divan Raj",
@@ -57,7 +56,7 @@ class App extends Component {
         }}
       >
         <Header />
-        <Todos todos={this.state.todos} />
+        <Contacts contacts={this.state.contacts} />
       </div>
     );
   }

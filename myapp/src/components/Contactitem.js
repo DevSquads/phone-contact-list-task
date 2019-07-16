@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-export class Todoitem extends Component {
+export class Contactitem extends Component {
   getStyle = () => {
     return {
       background: "#f8f8f8",
@@ -13,7 +13,7 @@ export class Todoitem extends Component {
   };
 
   render() {
-    const { name, career, picture } = this.props.todo;
+    const { name, career, picture } = this.props.contact;
     return (
       <div>
         <div
@@ -33,8 +33,8 @@ export class Todoitem extends Component {
   }
 }
 
-Todoitem.propTypes = {
-  todo: PropTypes.object.isRequired
+Contactitem.propTypes = {
+  contact: PropTypes.object.isRequired
 };
 
-export default Todoitem;
+export default Contactitem;
