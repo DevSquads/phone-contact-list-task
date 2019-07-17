@@ -17,15 +17,15 @@ import Icon from "react-native-vector-icons/EvilIcons";
 import * as Animatable from "react-native-animatable";
 
 // User Defined Components Imports
-import NamesList from "../Components/NamesList";
+import NamesList from "./NamesList";
 
-export default class ContactsList extends React.Component {
+export default class MainContactsScreen extends React.Component {
   state = {
     search: "",
     searchBarFocused: false
   };
 
-  // Implementing life-cycle Functions
+  // Lif-cycle methods implementation
   componentDidMount() {
     if (Platform.OS === "ios") {
       this.keyboardWillShow = Keyboard.addListener(
@@ -56,11 +56,12 @@ export default class ContactsList extends React.Component {
     const { search } = this.state;
 
     return (
+      // ------ Header Section --------
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{ flex: 1 }}>
           <StatusBar backgroundColor="#00529B" />
           <View style={styles.header}>
-            <Text style={styles.name}>CONTACTS LIST</Text>
+            <Text style={styles.name}>Contacts List</Text>
             <Animatable.View
               style={styles.inputContainer}
               animation="slideInRight"
@@ -83,12 +84,15 @@ export default class ContactsList extends React.Component {
                 style={styles.input}
                 placeholderTextColor="#fff"
                 value={search}
+                testID="searchText"
                 onChangeText={this.updateSearch}
                 ref={ref => (this.ref = ref)}
                 duration={400}
               />
             </Animatable.View>
           </View>
+
+          {/* ----- List of names to be rendered and search functionality implementation ------ */}
           <NamesList searchText={this.state.search} />
         </View>
       </TouchableWithoutFeedback>

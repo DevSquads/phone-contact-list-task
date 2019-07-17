@@ -10,7 +10,6 @@ export default class NamesList extends React.Component {
   state = {
     list: _.orderBy(require("../NamesList.json"), ["name"], ["asc"]),
     copiedVersion: _.orderBy(require("../NamesList.json"), ["name"], ["asc"]), // To be able to render the new list according to search text
-    searchText: this.props.searchText,
     emptyListFlag: false
   };
 
@@ -41,6 +40,7 @@ export default class NamesList extends React.Component {
           data={this.state.list}
           renderItem={({ item }) => (
             <ListItem
+              testID="name"
               title={item.name}
               subtitle={item.subtitle}
               leftAvatar={{
@@ -53,7 +53,10 @@ export default class NamesList extends React.Component {
       );
     } else {
       return (
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <View
+          testID="wrong-searchText"
+          style={{ justifyContent: "center", alignItems: "center" }}
+        >
           <Text style={{ fontSize: 15, marginTop: 20 }}>
             There's no match for your search.
           </Text>
